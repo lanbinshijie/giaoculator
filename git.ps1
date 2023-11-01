@@ -1,10 +1,10 @@
 # 解析命令行参数
 param(
     [Parameter(Mandatory = $false)]
-    [string]$s,
+    [switch]$s, 
 
     [Parameter(Mandatory = $false)]
-    [string]$comment
+    [string]$comment = $args[1]
 )
 
 # 检查当前文件夹是否是git仓库
@@ -44,15 +44,15 @@ if (-not (Test-Path .git)) {
     # 切换到main分支
     git checkout main
 
-    if ($s -eq "-s" -and $comment) {
+    if ($s -and $comment) {
         # 添加所有更改并提交
         git add .
-        git commit -m $comment
+        git commit -m "$comment"
 
         # 推送到两个远程仓库
         git push github-origin main
         git push gitea-origin main
-    } elseif ($s -eq "-s") {
+    } elseif ($s) {
         Write-Host "Please provide a commit comment."
     } else {
         Write-Host "Invalid or missing parameters."
