@@ -43,7 +43,7 @@ Giaoculator is licensed under the MIT License. See `LICENSE` for more informatio
 1. Peter Li (House @Haoxuan1016)
 2. Leo Huo (Lanbin @lanbinshijie)
 
-3. Charles Wang
+3. Charles Wang (_need to be fill in_)
 
 ---
 
